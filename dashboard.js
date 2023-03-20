@@ -275,4 +275,8 @@ function checkStatus() {
 
 setInterval(checkStatus, 500);
 
+const myModal = new bootstrap.Modal('#staticBackdrop');
+myModal.show();
+
+
 })()
