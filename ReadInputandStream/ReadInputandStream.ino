@@ -25,6 +25,9 @@
 
 byte mac[] = { 0x60, 0x52, 0xD0, 0x07, 0x43, 0xD4 };
 
+int channelRead1, channelRead2, channelRead3, channelRead4;
+int channelLast1, channelLast2, channelLast3, channelLast4;
+
 void setup(){ // the setup routine runs once:
 
   Serial.begin(115200);  //initialize serial communication at 115200 bits per second 
@@ -43,25 +46,38 @@ void setup(){ // the setup routine runs once:
 void loop(){  // the loop routine runs over and over again forever:
   Ethernet.maintain();
   EthernetClient *client;
-  
-  //inputVolts = 10 * ((float)inputCounts / 8191);  //Convert 13-bit value to Volts
-  char msg[120];
-  sprintf(msg, "{\"channel1\":%d,\"channel2\":%d,\"channel3\":%d,\"channel4\":%d}", P1.readAnalog(1, 1), P1.readAnalog(1, 2), P1.readAnalog(1, 3), P1.readAnalog(1, 4));
-  client = PubNub.publish("monitoringchannel", msg);
-  if (!client) {
-      Serial.println("publishing error");
-      delay(1000);
-      return;
-  }
-  while (client->connected()) {
-      while (client->connected() && !client->available());
-      char c = client->read();
-      Serial.print(c);
-  }
-  Serial.println();
-  client->stop();
- 
-  Serial.println(msg);
 
-  delay(250);
+  // Get the readings from the 4 analog inputs 
+  channelRead1 = P1.readAnalog(1, 1);
+  channelRead2 = P1.readAnalog(1, 2);
+  channelRead3 = P1.readAnalog(1, 3);
+  channelRead4 = P1.readAnalog(1, 4);
+
+  //Publish to PubNub the absolute value of the difference from the last 2 readings (the vibration)
+  char msg[120];
+  sprintf(msg, "{\"channel1\":%d,\"channel2\":%d,\"channel3\":%d,\"channel4\":%d}", abs(channelLast1-channelRead1), abs(channelLast2-channelRead2), abs(channelLast3-channelRead3), abs(channelLast4-channelRead4));
+  if (channelLast1 > 0) { // Skip first publish
+    client = PubNub.publish("monitoringchannel", msg);
+    if (!client) {
+        Serial.println("publishing error");
+        delay(1000);
+        return;
+    }
+    while (client->connected()) {
+        while (client->connected() && !client->available());
+        char c = client->read();
+        Serial.print(c);
+    }
+    Serial.println();
+    client->stop();
+  }
+
+  //Remember last reading for next reading
+  channelLast1 = channelRead1;
+  channelLast2 = channelRead2;
+  channelLast3 = channelRead3;
+  channelLast4 = channelRead4;
+  
+  Serial.println(msg);
+  delay(500);
 }
