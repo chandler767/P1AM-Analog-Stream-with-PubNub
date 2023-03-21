@@ -270,6 +270,13 @@ function checkStatus() {
     document.getElementById('C1VSD').classList.add("d-none");
     document.getElementById('C1VSW').classList.add("d-none");
     document.getElementById('C1VSS').classList.remove("d-none");
+
+    document.getElementById('C2OSD').classList.remove("d-none");
+    document.getElementById('C2OSW').classList.add("d-none");
+    document.getElementById('C2OSN').classList.add("d-none");
+    document.getElementById('C2VSD').classList.add("d-none");
+    document.getElementById('C2VSW').classList.add("d-none");
+    document.getElementById('C2VSS').classList.remove("d-none");
   }
 }
 
