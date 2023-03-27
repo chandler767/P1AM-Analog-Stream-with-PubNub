@@ -26,7 +26,6 @@
     </div>
   </div>
 </header>
-
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -74,6 +73,7 @@
         </div>
       </div>
       <div>
+        </div>
         <h3>Compressor Sensor</h3>
         <canvas class="my-4 w-100 chartjs-render-monitor" id="sensorchart1" style="display: block; width: 1540px; height: 350px;" width="1540" height="350"></canvas>
         <div class="container">
@@ -85,6 +85,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Danger</h5>
                   <p class="card-text">Data is not being received and is not being monitored. Check hardware immediately for faults.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-dark mb-3 bg-warning d-none" id="C1OSW" style="max-width: 18rem;">
@@ -92,6 +95,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Warning</h5>
                   <p class="card-text">Sensor output values are indicating low or no vibrations. The monitored device may be offline or inactive.</p>
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-white mb-3 bg-success d-none" id="C1OSN" style="max-width: 18rem;">
@@ -99,8 +105,12 @@
                 <div class="card-body">
                   <h5 class="card-title">Normal</h5>
                   <p class="card-text">Data is being recived and vibrations are shown above.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
+              
               
             </div>
             <div class="col">
@@ -109,6 +119,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Danger</h5>
                   <p class="card-text">Extreme vibrations detected. Check monitored hardware for potential issues. Exercise caution.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-dark mb-3 bg-warning d-none" id="C1VSW" style="max-width: 18rem;">
@@ -116,6 +129,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Medium</h5>
                   <p class="card-text">Significant vibrations detected within normal range.</p>
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-white mb-3 bg-success" id="C1VSS" style="max-width: 18rem;">
@@ -123,6 +139,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Low</h5>
                   <p class="card-text">Little or no vibration activity.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
@@ -151,6 +170,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Danger</h5>
                   <p class="card-text">Data is not being received and is not being monitored. Check hardware immediately for faults.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-dark mb-3 bg-warning d-none" id="C2OSW" style="max-width: 18rem;">
@@ -158,6 +180,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Warning</h5>
                   <p class="card-text">Sensor output values are indicating low or no vibrations. The monitored device may be offline or inactive.</p>
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-white mb-3 bg-success d-none" id="C2OSN" style="max-width: 18rem;">
@@ -165,6 +190,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Normal</h5>
                   <p class="card-text">Data is being recived and vibrations are shown above.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#OPStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               
@@ -175,6 +203,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Danger</h5>
                   <p class="card-text">Extreme vibrations detected. Check monitored hardware for potential issues. Exercise caution.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-dark mb-3 bg-warning d-none" id="C2VSW" style="max-width: 18rem;">
@@ -182,6 +213,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Medium</h5>
                   <p class="card-text">Significant vibrations detected within normal range.</p>
+                  <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
               <div class="card text-white mb-3 bg-success" id="C2VSS" style="max-width: 18rem;">
@@ -189,6 +223,9 @@
                 <div class="card-body">
                   <h5 class="card-title">Low</h5>
                   <p class="card-text">Little or no vibration activity.</p>
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#VStatModal">
+                    More Info
+                  </button>
                 </div>
               </div>
             </div>
@@ -222,10 +259,58 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Welcome to the Predictive Maintenance Dashboard Demo powered by PubNub. This demo shows real data from an industrial programmable logic controller connected to vibration sensors. This data is used to anticipate when equipment is about to fail or when maintenance is needed. Some features of this dashboard are disabled. Send an email to <a href="mailto:devrel@pubnub.com">devrel@pubnub.com</a> to learn more about how to create your own predictive maintenance monitoring system powered by PubNub.
+        Welcome to the Predictive Maintenance Dashboard Demo powered by PubNub. This demo shows real data from an industrial programmable logic controller connected to vibration sensors.
+         This data is used to anticipate when equipment is about to fail or when maintenance is needed. Some features of this dashboard are disabled. Send an email to
+          <a href="mailto:devrel@pubnub.com">devrel@pubnub.com</a> to learn more about how to create your own predictive maintenance monitoring system powered by PubNub.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="OPStatModal" tabindex="-1" role="dialog" aria-labelledby="OPStatModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="OPStatModalLabel">Operational Status Info</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Danger</h5>
+        <p>Data is not being received and is not being monitored. Check hardware immediately for faults.</p>
+        <h5>Warning</h5>
+        <p>Sensor output values are indicating low or no vibrations. The monitored device may be offline or inactive.</p>
+        <h5>Normal</h5>
+        <p>Data is being recived and vibrations are shown.</p>            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="VStatModal" tabindex="-1" role="dialog" aria-labelledby="VStatModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="VStatModalLabel">Vibration Status Info</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Danger</h5>
+        <p>Extreme vibrations detected. Check monitored hardware for potential issues. Exercise caution.</p>
+        <h5>Medium</h5>
+        <p>Significant vibrations detected within normal range.</p>
+        <h5>Low</h5>
+        <p>Little or no vibration activity.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
